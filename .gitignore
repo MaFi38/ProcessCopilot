@@ -47,9 +47,8 @@ app.log
 *.sqlite3
 *.db
 
-backend/chroma_db/*/header.bin
-backend/chroma_db/*/length.bin
-backend/chroma_db/*/link_lists.bin
+backend/chroma_db/**/*.bin
+
 # macOS metadata
 .DS_Store
 
