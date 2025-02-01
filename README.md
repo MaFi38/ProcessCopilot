@@ -2,6 +2,7 @@
 
 # Create a virtual environment
 python3 -m venv venv
+## Activat it 
 source venv/bin/activate
 
 # Install the required packages in root folder
