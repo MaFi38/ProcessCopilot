@@ -50,8 +50,5 @@
     ├── __pycache__
     │   └── main.cpython-312.pyc
     ├── requirements.txt
-    └── static
-        ├── attach-file.png
-        └── bin.png
-
+    
 14 directories, 41 files
