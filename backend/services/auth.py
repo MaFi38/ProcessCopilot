@@ -4,8 +4,8 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from typing import List, Optional
 from models.pydantic_models import QueryInput, QueryResponse, DocumentInfo, DeleteFileRequest
-from langchain_utils import get_rag_chain
-from backend.services.database import insert_application_logs, get_chat_history, get_all_documents, insert_document_record, delete_document_record
+from services.langchain_utils import get_rag_chain
+from services.database import insert_application_logs, get_chat_history, get_all_documents, insert_document_record, delete_document_record
 from vector_store_db import index_document_to_chroma, delete_doc_from_chroma
 import os
 import uuid

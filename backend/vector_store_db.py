@@ -2,7 +2,10 @@ from langchain_community.document_loaders import  (
     PyPDFLoader,
     Docx2txtLoader,
     UnstructuredHTMLLoader,
-    TextLoader
+    TextLoader,
+    UnstructuredCSVLoader,
+    UnstructuredExcelLoader
+
 )
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
@@ -41,6 +44,10 @@ def load_and_split_document(file_path: str) -> List[Document]:
         loader = UnstructuredHTMLLoader(file_path)
     elif file_path.endswith('.txt'):
         loader = TextLoader(file_path, encoding='UTF-8')
+    elif file_path.endswith('.csv'):
+        loader = UnstructuredCSVLoader(file_path,mode="elements")
+    elif file_path.endswith('.xlsx') or file_path.endswith('.xls'):
+        loader = UnstructuredExcelLoader(file_path,mode="elements")
     else:
         raise ValueError(f"Unsupported file type: {file_path}")
 

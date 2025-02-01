@@ -2,8 +2,8 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from models.pydantic_models import QueryInput, QueryResponse, DocumentInfo, DeleteFileRequest
 from fastapi.security import OAuth2PasswordBearer
 from models.user import UserRegister
-from langchain_utils import get_rag_chain
-from backend.services.database import (
+from services.langchain_utils import get_rag_chain
+from services.database import (
       insert_application_logs,
       get_chat_history, get_all_documents, 
       insert_document_record, 
