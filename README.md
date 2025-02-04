@@ -37,7 +37,9 @@ pip install -r requirements.txt
 ```
 
 ### Navigate to the frontend folder in separete terminal 
+```
  cd frontend
+```
 ### run the frontend 
 ```
   streamlit run main.py
