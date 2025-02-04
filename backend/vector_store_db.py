@@ -8,8 +8,13 @@ from langchain_community.document_loaders import  (
 
 )
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain_text_splitters import SemanticChunker
 from langchain_openai import OpenAIEmbeddings
+from langchain.embeddings import HuggingFaceEmbeddings 
+
+
 from langchain_chroma import Chroma
+from langchain.vectorstores import FAISS
 from typing import List
 from langchain_core.documents import Document
 import os
@@ -25,6 +30,9 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 LANGCHAIN_API_KEY = os.getenv("LANGCHAIN_API_KEY")
 LANGCHAIN_PROJECT = os.getenv("LANGCHAIN_PROJECT")
 LANGCHAIN_TRACING_V2 = os.getenv("LANGCHAIN_TRACING_V2")
+
+print("OPENAI_API_KEY:",OPENAI_API_KEY)
+
 
 
 # Initialize text splitter and embedding function

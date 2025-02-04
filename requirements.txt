@@ -16,3 +16,4 @@ pillow==9.2.0
 pytesseract==0.3.8
 setuptools>=65.5.1
 streamlit
+python-dotenv

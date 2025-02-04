@@ -7,9 +7,13 @@ from typing import List
 from langchain_core.documents import Document
 import os
 from vector_store_db import vectorstore
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
 
-
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+print("OPENAI_API_KEY: inside the langchain",OPENAI_API_KEY)
 retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
 
 output_parser = StrOutputParser()
@@ -39,8 +43,8 @@ qa_prompt = ChatPromptTemplate.from_messages([
 
 
 def get_rag_chain(model="gpt-4o-mini"):
-
     llm = ChatOpenAI(model=model)
+ 
     
     history_aware_retriever = create_history_aware_retriever(llm, retriever, contextualize_q_prompt)
     question_answer_chain = create_stuff_documents_chain(llm, qa_prompt)

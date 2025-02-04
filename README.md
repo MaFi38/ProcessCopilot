@@ -1,5 +1,18 @@
 ### ProcessCopilot
 
+### install ollama and LLM models 
+   install llama3.1 7B
+  ```
+  ollama run llama 3.1
+  ```
+  install llama3.2 3B 
+  ```
+  ollama run llama3.2:3b
+  ```
+  install embeding model
+  ```
+  ollama pull nomic-embed-text
+  ```
 ### Create a virtual environment
 ```
  python3 -m venv venv
@@ -29,21 +42,24 @@ pip install -r requirements.txt
  
 ### Navigate to the backend folder
 ```
- cd backend
-```
-### Run the backend 
-```
+ cd backend 
+ ```
+### Run the backend
+``` 
  uvicorn main:app --reload
 ```
 
 ### Navigate to the frontend folder in separete terminal 
-```
+ ```
  cd frontend
-```
+ ```
 ### run the frontend 
 ```
   streamlit run main.py
 ```  
+
+### Daynmic prompt 
+  you can add or copy past a prompt in the prompt.txt file 
 
 
 
