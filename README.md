@@ -28,7 +28,9 @@ pip install -r requirements.txt
 ```
  
 ### Navigate to the backend folder
- cd backend 
+```
+ cd backend
+```
 ### Run the backend 
 ```
  uvicorn main:app --reload
