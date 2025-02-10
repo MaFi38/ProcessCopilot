@@ -9,7 +9,7 @@
   ```
   ollama run llama3.2:3b
   ```
-  install embeding model
+  install embedding model
   ```
   ollama pull nomic-embed-text
   ```
