@@ -21,12 +21,12 @@ def display_sidebar(create_new_session, switch_session):
         current_session_id = st.session_state.current_session
         if current_session_id not in st.session_state.sessions:
             st.session_state.sessions[current_session_id] = {
-                "model": "gpt-4o",
+                "model": "llama3.1",
                 "timestamp": dt.now(), 
                 "queries": [],
             }
 
-        model_options = ["gpt-4o", "gpt-4o-mini"]
+        model_options = ["llama3.2","llama3.1","gpt-4o", "gpt-4o-mini"]
         selected_model = st.sidebar.selectbox(
             "Select Model",
             options=model_options,
@@ -51,7 +51,6 @@ def display_sidebar(create_new_session, switch_session):
             if st.button(f"{first_chat_title}", key=f"switch_{session_id}"):  
                 switch_session(session_id)
 
-                print("button title", first_chat_title)
         with col2:
             # Add a unique key for the delete button
             delete_button = st.button("Delete", key=f"delete_{session_id}")

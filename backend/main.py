@@ -13,7 +13,7 @@ from services.database import (
       get_user_chat_history,
       delete_chat_session,
       reset_password_db)
-from vector_store_db import index_document_to_chroma, delete_doc_from_chroma
+from services.vector_store_db import index_document_to_chroma, delete_doc_from_chroma
 from services.auth import decode_token, hash_password, create_access_token,verify_password
 import os
 import uuid

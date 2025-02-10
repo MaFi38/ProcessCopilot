@@ -7,14 +7,14 @@ from langchain_community.document_loaders import  (
     UnstructuredExcelLoader
 
 )
+
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_text_splitters import SemanticChunker
 from langchain_openai import OpenAIEmbeddings
-from langchain.embeddings import HuggingFaceEmbeddings 
+from langchain_ollama import OllamaEmbeddings
+import ollama
 
 
 from langchain_chroma import Chroma
-from langchain.vectorstores import FAISS
 from typing import List
 from langchain_core.documents import Document
 import os
@@ -33,11 +33,13 @@ LANGCHAIN_TRACING_V2 = os.getenv("LANGCHAIN_TRACING_V2")
 
 print("OPENAI_API_KEY:",OPENAI_API_KEY)
 
+EMBEDDING_MODEL = "nomic-embed-text"
 
 
 # Initialize text splitter and embedding function
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200, length_function=len)
-embedding_function = OpenAIEmbeddings()
+# embedding_function = OpenAIEmbeddings()
+embedding_function = OllamaEmbeddings(model=EMBEDDING_MODEL)
 
 # Initialize Chroma vector store
 vectorstore = Chroma(persist_directory="./chroma_db", embedding_function=embedding_function)
@@ -66,6 +68,7 @@ def load_and_split_document(file_path: str) -> List[Document]:
 
 def index_document_to_chroma(file_path: str, file_id: int,user_id:int) -> bool:
     try:
+        ollama.pull(EMBEDDING_MODEL)
         splits = load_and_split_document(file_path)
 
         # Add metadata to each split
